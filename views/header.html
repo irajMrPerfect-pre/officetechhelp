@@ -1,0 +1,88 @@
+<script type="text/javascript">
+  $( document ).ready(function() {
+  
+  /* Set variables  */
+  var in_transition = false; // set in_transition back to false at the end of your transition.
+
+  // toggle dropdown on mouse hover, click and tap events
+  $('.dropdown1').on('mouseenter mouseleave click tap', function(event) {
+    /* We check if we are not in responsive mode by default .navbar-toggle is only visible in 768px and less aak mobile responsive mode. */
+    if (!$('.navbar-toggle').is(':visible')) {
+      
+      /* We ensure no other animation is runnning first */
+      if( in_transition == false ){
+        
+        /*Set in transition to true to ensure only one animation at a time*/
+        in_transition = true;
+        
+      /* Toggle dropdown open/ close  */
+      $('.dropdown-toggle1').dropdown('toggle');
+        
+        // Do your animation here and upon it's completion set in_transition back to false.
+        in_transition = false;
+        
+      }
+    }
+  });
+    // toggle dropdown on mouse hover, click and tap events
+  $('.dropdown2').on('mouseenter mouseleave click tap', function(event) {
+    /* We check if we are not in responsive mode by default .navbar-toggle is only visible in 768px and less aak mobile responsive mode. */
+    if (!$('.navbar-toggle').is(':visible')) {
+      
+      /* We ensure no other animation is runnning first */
+      if( in_transition == false ){
+        
+        /*Set in transition to true to ensure only one animation at a time*/
+        in_transition = true;
+        
+      /* Toggle dropdown open/ close  */
+      $('.dropdown-toggle2').dropdown('toggle');
+        
+        // Do your animation here and upon it's completion set in_transition back to false.
+        in_transition = false;
+        
+      }
+    }
+  });
+  //http://getbootstrap.com/javascript/#dropdowns
+});
+</script>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" ui-sref="home.index" style="font-size: 24px;
+    font-style: italic;
+    font-weight: 900;">Officetechhelp</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav headernav">
+        <li><a ui-sref="home.index">Home</a></li>
+        </li>
+        <li class="dropdown1"> <a class="dropdown-toggle1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="home.products({productname :'html5'})">HTML5</a></li>
+            <li><a ui-sref="home.products({productname :'seo'})">SEO & SEM</a></li>
+            <li><a ui-sref="home.products({productname :'web-design'})">Web Design</a></li>
+            <li><a ui-sref="home.products({productname :'application'})">Application Support</a></li>
+            <li><a ui-sref="home.products({productname :'email-support'})">Email Support</a></li>
+          </ul>
+          <li class="dropdown2"> <a  class="dropdown-toggle2" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ui-sref="home.services({servicename :'hardware'})">Hardware Services</a></li>
+            <li><a ui-sref="home.services({servicename :'software'})">Software Services</a></li>
+          </ul>
+        <li><a ui-sref="home.about">About Us</a></li>
+        <li><a ui-sref="home.privacy">Privacy Policy</a></li>
+        <!-- <li><a ui-sref="home.index">Products</a></li>
+        <li><a ui-sref="home.index">Services</a></li> -->
+        <li><a ui-sref="home.contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
